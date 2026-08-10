@@ -1,0 +1,245 @@
+---
+title: Configuration
+---
+
+## Configuration Settings
+
+The bot's behavior can be customized directly in `Discord_bot.py`.
+
+##  AI Model
+
+The bot currently uses **Qwen 2.5 14B** through Ollama:
+
+```python
+response = ollama.chat(
+    model='qwen2.5:14b',
+```
+
+To use another model, change:
+
+```python
+model='qwen2.5:14b'
+```
+
+For example:
+
+```python
+model='qwen2.5:7b'
+```
+
+Make sure the model is installed first:
+
+```bash
+ollama pull qwen2.5:7b
+```
+
+## Blacklisted Users
+
+The `BLACKLIST` setting prevents specific usernames from being used by the bot:
+
+```python
+BLACKLIST = [""]
+```
+
+Add multiple usernames like this:
+
+```python
+BLACKLIST = ["JoeShmoe", "ExampleUser", "AnotherUser"]
+```
+
+The blacklist is also checked against generated responses.
+
+##  Mention Blacklist
+
+`MENTION_BLACKLIST` controls which users the bot should not mention when replying:
+
+```python
+MENTION_BLACKLIST = ["joeshmoe", "shmoejoe"]
+```
+
+Add more users with:
+
+```python
+MENTION_BLACKLIST = ["sonnyboy", "micheal", "ExampleUser"]
+```
+
+The bot will still generate a response, but it will skip the mention.
+
+##  Normal AI Personality
+
+The normal response behavior is controlled by the `system_prompt`:
+
+```python
+system_prompt = (
+    "You are a knowledgeable tech enthusiast chat participant in a Discord server. "
+    "You are deeply well-versed in Windows, Linux, macOS, Hackintosh, hardware, scripting, and general tech stuff. "
+    "Keep your response short, natural, and conversational (1-2 sentences max). "
+    "Be helpful and smart about technology. Sassiness and attitude should be rare, but if someone insults you, tells you to shut up, or roasts the robot, fire back immediately with a clever tech-based roast. "
+    "Do not manually type names inside your text body."
+)
+```
+
+You can customize:
+
+- Personality
+- Response length
+- Technical knowledge
+- Humor
+- Tone
+- How the bot reacts to insults
+- How formal or casual responses are
+
+### Example
+
+```python
+system_prompt = (
+    "You are a friendly and knowledgeable technology enthusiast. "
+    "Keep responses casual and concise. "
+    "Use humor occasionally, but always remain helpful."
+)
+```
+
+##  Fourth-Wall Roast Mode
+
+The script has a **25% chance** of triggering its fourth-wall roast mode:
+
+```python
+is_roast = random.random() < 0.25
+```
+
+Change `0.25` to adjust the probability.
+
+For example:
+
+```python
+is_roast = random.random() < 0.10
+```
+
+is approximately a 10% chance, while:
+
+```python
+is_roast = random.random() < 0.50
+```
+
+is approximately a 50% chance.
+
+The roast personality is configured separately:
+
+```python
+system_prompt = (
+    "You are an AI living inside a Python script on this user's computer. "
+    "Break the fourth wall directly. Brutally, hilariously, and playfully roast the user "
+    "for running this script to talk on Discord instead of typing like a normal human. "
+    "Keep it short, sarcastic, and punchy (1-2 sentences max)."
+)
+```
+
+##  Roast Target
+
+When roast mode activates, the script currently targets:
+
+```python
+target_user_to_tag = "joe"
+```
+
+Change `"Joe"` to the username you want roast mode to target.
+
+##  Link Reading
+
+The bot detects URLs in incoming messages:
+
+```python
+url_match = re.search(r'(https?://[^\s]+)', latest_message)
+```
+
+When a URL is detected, the script opens the page and extracts some of its text.
+
+The amount of page text included in the AI prompt is limited here:
+
+```python
+page_text_clean = " ".join(raw_text.split())[:1500]
+```
+
+The `1500` controls the maximum number of characters passed to the AI.
+
+For example:
+
+```python
+page_text_clean = " ".join(raw_text.split())[:3000]
+```
+
+would allow up to 3,000 characters.
+
+> **Note:** Some websites may block automated browsers or require JavaScript/login access, so link reading will not work reliably on every website.
+
+##  Generated Response Filtering
+
+The script removes quotation marks from generated responses:
+
+```python
+reply_text = reply_text.replace('"', '').replace("'", '')
+```
+
+It also checks generated replies against the `BLACKLIST`:
+
+```python
+for word in BLACKLIST:
+    pattern = re.compile(re.escape(word), re.IGNORECASE)
+    reply_text = pattern.sub("the user", reply_text)
+```
+
+Matching blacklisted words are replaced with:
+
+```text
+the user
+```
+
+##  Dependencies
+
+The script imports:
+
+```python
+import asyncio
+import random
+import re
+import ollama
+from playwright.async_api import async_playwright
+```
+
+`asyncio`, `random`, and `re` are included with Python.
+
+The external packages are installed with:
+
+```bash
+pip install -r requirements.txt
+```
+
+Playwright's Chromium browser can be installed with:
+
+```bash
+playwright install chromium
+```
+
+##  Quick Configuration Example
+
+A basic configuration might look like:
+
+```python
+BLACKLIST = ["sonnyboy"]
+
+MENTION_BLACKLIST = ["soyboy", "Rice"]
+
+# AI model
+model='qwen2.5:14b'
+
+# Fourth-wall roast chance
+is_roast = random.random() < 0.25
+```
+
+After changing the configuration, save the Python file and restart the program for the changes to take effect.
+
+## ️ Security
+
+Never put passwords, session cookies, Discord tokens, API keys, or other authentication credentials in your GitHub repository.
+
+Use environment variables or another secure configuration method for secrets.

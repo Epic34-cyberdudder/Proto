@@ -1,0 +1,140 @@
+---
+title: Installation
+---
+
+Follow these steps to get your Discord AI Bot up and running locally.
+
+## Prerequisites
+
+Make sure you have the following installed on your machine:
+
+- **Python** (version 3.8 or higher)
+- **Node.js** (for running this documentation site)
+- **Ollama** (for running local AI models)
+
+---
+
+## Step 1: Clone the Repository
+
+Open your terminal and clone your GitHub repository, then navigate into the folder:
+
+```bash
+git clone https://github.com/Epic34-cyberdudder/Discord-AI-BOT.git
+cd Discord-AI-BOT
+```
+
+## Step 2: Install the Requirements
+
+Install the required Python packages:
+
+```bash
+pip install -r requirements.txt
+```
+
+Then install the Chromium browser used by Playwright:
+
+```bash
+playwright install chromium
+```
+
+## Step 3: Create a Virtual Environment
+
+Create a Python virtual environment.
+
+### Windows
+
+```bash
+python -m venv .venv
+```
+
+### macOS/Linux
+
+```bash
+python3 -m venv .venv
+```
+
+## Step 4: Activate the Virtual Environment
+
+### Windows
+
+```bash
+.venv\Scripts\activate.bat
+```
+
+### macOS/Linux
+
+```bash
+source .venv/bin/activate
+```
+
+## Step 5: Pull an Ollama Model
+
+Pull one of the recommended Ollama models:
+
+```bash
+ollama pull qwen2.5:7b
+```
+
+or:
+
+```bash
+ollama pull qwen2.5:14b
+```
+
+or:
+
+```bash
+ollama pull llama3.1:8b
+```
+
+Make sure the model you install matches the model configured in the `.py` script.
+
+## Step 6: Run Chrome in Debug Mode
+
+To allow the application to connect to a dedicated Chrome debugging session, start Chrome with remote debugging enabled.
+
+### Windows
+
+```bash
+"C:\Program Files\Google\Chrome\Application\chrome.exe" --remote-debugging-port=9222 --user-data-dir="C:\chrome_dev_profile"
+```
+
+### Linux
+
+```bash
+google-chrome --remote-debugging-port=9222 --user-data-dir="$HOME/chrome_dev_profile"
+```
+
+### macOS
+
+```bash
+/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222 --user-data-dir="$HOME/chrome_dev_profile"
+```
+
+## Step 7: Log In
+
+Log in to the required service in the new Chrome window.
+
+**Important:** use a dedicated browser profile for this application and do not share your session data, cookies, or credentials.
+
+## Step 8: Configure the Bot
+
+Open `Discord_bot.py` and adjust the Ollama model to the model you installed.
+
+You can also configure whether you want sarcasm enabled, if that option is available in the script.
+
+## Step 9: Run Discord_bot.py
+
+With your virtual environment activated, run:
+
+```bash
+python Discord_bot.py
+```
+
+## 🎉 Finished!
+
+Your bot should now be running.
+
+```text
+Now Enjoy Your Bot!
+```
