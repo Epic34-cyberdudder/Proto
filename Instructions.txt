@@ -1,0 +1,24 @@
+1. install the requirments
+        pip install -r requirements.txt
+		playwright install chromium
+2. Run python -m venv .venv for windows or python3 -m venv .venv to create a venv
+3. activate the venv.
+     Windows: .venv\Scripts\activate.bat
+	 macOS/Linux: source .venv/bin/activate
+4. Pull an ollama model. (Here are reccomendations)
+           
+   ollama pull qwen2.5:7b
+       or
+   ollama pull qwen2.5:14b
+       or
+   ollama pull llama3.1:8b
+    (adjust it in the .py script)
+
+5. Run chrome in Debug Mode
+    Windows: chrome.exe --remote-debugging-port=9222 --user-data-dir="C:\chrome_dev_profile"
+    Linux: google-chrome --remote-debugging-port=9222 --user-data-dir="$HOME/chrome_dev_profile"
+    macOS: /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222 --user-data-dir="$HOME/chrome_dev_profile"
+6. Login to your discord account on the new chrome window
+7. finally after adjusting your ollama model and whether you want sarcasm run Discord_bot.py
+
+                      Now Enjoy Your Bot!	
