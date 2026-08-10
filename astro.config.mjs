@@ -9,6 +9,7 @@ export default defineConfig({
   integrations: [
     starlight({
       title: 'Discord AI Bot',
+
       social: [
         {
           icon: 'github',
@@ -16,6 +17,7 @@ export default defineConfig({
           href: 'https://github.com/Epic34-cyberdudder/Discord-AI-BOT',
         },
       ],
+
       sidebar: [
         {
           label: 'Guides',
