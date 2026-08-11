@@ -43,4 +43,174 @@ Proto is a  local AI-powered chat bot for Discord that uses Playwright to contro
    ollama pull qwen2.5:14b
        or
    ollama pull llama3.1:8b
+   
+   
+   
+   
+ ## Step 1: Clone the Repository
+
+Open your terminal and clone the GitHub repository, then navigate into the folder:
+
+```bash
+git clone https://github.com/Epic34-cyberdudder/Proto.git
+cd Proto
+```
+
+## Step 2: Create a Virtual Environment
+
+Create a Python virtual environment.
+
+### Windows
+
+```bash
+python -m venv .venv
+```
+
+### macOS/Linux
+
+```bash
+python3 -m venv .venv
+```
+
+## Step 3: Activate the Virtual Environment
+
+**IMPORTANT: You must have the virtual environment activated before installing the requirements, running the bot, using the Fluttershy GUI, or building the executable.**
+
+### Windows
+
+```bash
+.venv\Scripts\activate.bat
+```
+
+### macOS/Linux
+
+```bash
+source .venv/bin/activate
+```
+
+After activation, your terminal should show something similar to:
+
+```text
+(.venv) C:\Users\YourName\Proto>
+```
+
+If you do not see `(.venv)` at the beginning of your terminal prompt, **the virtual environment is not activated**.
+
+## Step 4: Install the Requirements
+
+**Make sure your virtual environment is still activated.**
+
+Install the required Python packages:
+
+```bash
+pip install -r requirements.txt
+```
+
+Then install the Chromium browser used by Playwright:
+
+```bash
+playwright install chromium
+```
+
+## Step 5: Pull an Ollama Model
+
+Pull one of the recommended Ollama models:
+
+```bash
+ollama pull qwen2.5:7b
+```
+
+or:
+
+```bash
+ollama pull qwen2.5:14b
+```
+
+or:
+
+```bash
+ollama pull llama3.1:8b
+```
+
+Make sure the model you install matches the model configured in the `.py` script.
+
+## Step 6: Build the Fluttershy GUI
+
+The project includes a Fluttershy GUI and a `build.py` script that can package the GUI into an executable.
+
+**IMPORTANT: Your virtual environment must be activated before running `build.py`.**
+
+With `(.venv)` visible in your terminal, run:
+
+```bash
+python build.py
+```
+
+The build script will package `fluttershy.py` into an `.exe`.
+
+After the build completes, check the project's output/build directory for the generated executable.
+
+> **If `(.venv)` is not shown in your terminal, stop and activate the virtual environment before running `build.py`.**
+
+## Step 7: Run the Fluttershy GUI
+
+Once the executable has been built, you can launch the generated `.exe`.
+
+Alternatively, you can run the GUI directly from Python while your virtual environment is activated:
+
+```bash
+python fluttershy.py
+```
+
+## Step 8: Run Chrome in Debug Mode
+
+To allow the application to connect to a dedicated Chrome debugging session, start Chrome with remote debugging enabled.
+
+### Windows
+
+```bash
+"C:\Program Files\Google\Chrome\Application\chrome.exe" --remote-debugging-port=9222 --user-data-dir="C:\chrome_dev_profile"
+```
+
+### Linux
+
+```bash
+google-chrome --remote-debugging-port=9222 --user-data-dir="$HOME/chrome_dev_profile"
+```
+
+### macOS
+
+```bash
+/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --remote-debugging-port=9222 --user-data-dir="$HOME/chrome_dev_profile"
+```
+
+## Step 9: Log In
+
+Log in to the required service in the new Chrome window.
+
+**Important:** use a dedicated browser profile for this application and do not share your session data, cookies, or credentials.
+
+## Step 10: Configure the Bot
+
+Open `Discord_bot.py` and adjust the Ollama model to the model you installed.
+
+You can also configure whether you want sarcasm enabled, if that option is available in the script.
+
+## Step 11: Run Discord_bot.py
+
+**Make sure your virtual environment is activated.**
+
+Run:
+
+```bash
+python Discord_bot.py
+```
+
+## 🎉 Finished!
+
+Your bot should now be running.
+
+```text
+Now Enjoy Your Bot!
+```
 
