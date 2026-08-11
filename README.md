@@ -1,6 +1,6 @@
 
-                                                                         **PROTO**
-A local AI-powered chat bot for Discord that uses Playwright to control an existing browser session and Ollama to generate intelligent, context-aware responses locally on your machine.
+                                                                 **PROTO**
+Proto is a  local AI-powered chat bot for Discord that uses Playwright to control an existing browser session and Ollama to generate intelligent, context-aware responses locally on your machine.
 
 
 
@@ -12,17 +12,17 @@ A local AI-powered chat bot for Discord that uses Playwright to control an exist
 
 
 
-\- Local \& Private:\*\* Runs entirely on your computer using Ollama (no external API keys needed).
+\- Local \& Private: Runs entirely on your computer using Ollama (no external API keys needed).
 
-\- Instant Output:\*\* Uses automated typing to drop messages directly into Discord.
+\- Instant Output: Uses automated typing to drop messages directly into Discord.
 
-\- Context Aware:\*\* Automatically reads the latest messages and can even scrape contents from shared URLs.
+\- Context Aware: Automatically reads the latest messages and can even scrape contents from shared URLs.
 
-\- Tech Enthusiast Persona:\*\* Well-versed in Windows, Linux, macOS, hardware, and scripting.
+\- Tech Enthusiast Persona: Well-versed in Windows, Linux, macOS, hardware, and scripting.
 
-\- Configurable Humor:\*\* Easily toggle fourth-wall breaks, roasts, and sarcasm on or off.
+\- Configurable Humor: Easily toggle fourth-wall breaks, roasts, and sarcasm on or off.
 
-\- Hardware Flexibility:\*\* Easily switch between high-end models (`qwen2.5:14b`) and lightweight alternatives (`qwen2.5:7b` / `llama3.1:8b`).
+\- Hardware Flexibility: Easily switch between high-end models (`qwen2.5:14b`) and lightweight alternatives (`qwen2.5:7b` / `llama3.1:8b`).
 
 
 
