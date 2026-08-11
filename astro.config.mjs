@@ -14,7 +14,7 @@ export default defineConfig({
         {
           icon: 'github',
           label: 'GitHub',
-          href: 'https://github.com/Epic34-cyberdudder/Discord-AI-BOT',
+          href: 'https://github.com/Epic34-cyberdudder/Proto',
         },
       ],
 
