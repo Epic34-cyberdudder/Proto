@@ -214,3 +214,7 @@ Your bot should now be running.
 Now Enjoy Your Bot!
 ```
 
+
+
+Distributed under the MIT License. See LICENSE for more information.
+
