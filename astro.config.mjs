@@ -10,6 +10,11 @@ export default defineConfig({
     starlight({
       title: 'Proto',
 
+      logo: {
+        src: './src/assets/Protonus.png',
+        alt: 'Proto',
+      },
+
       social: [
         {
           icon: 'github',
