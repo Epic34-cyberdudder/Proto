@@ -4,11 +4,11 @@ import starlight from '@astrojs/starlight';
 
 export default defineConfig({
   site: 'https://epic34-cyberdudder.github.io',
-  base: '/Discord-AI-BOT',
+  base: '/Proto',
 
   integrations: [
     starlight({
-      title: 'Discord AI Bot',
+      title: 'Proto',
 
       social: [
         {
