@@ -1,3 +1,5 @@
+
+                                                                         **PROTO**
 A local AI-powered chat bot for Discord that uses Playwright to control an existing browser session and Ollama to generate intelligent, context-aware responses locally on your machine.
 
 
