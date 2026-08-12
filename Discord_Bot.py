@@ -5,8 +5,8 @@ import ollama
 from playwright.async_api import async_playwright
 
 # Define blacklisted words and users to NEVER tag
-BLACKLIST = ["Geeteeoo"]
-MENTION_BLACKLIST = ["aiyan", "miguel"]
+BLACKLIST = ["edit"]
+MENTION_BLACKLIST = ["edit", "edit"]
 
 async def main():
     async with async_playwright() as p:
@@ -70,7 +70,7 @@ async def main():
 
         if is_roast:
             print("🔥 Fourth-wall break triggered! Preparing a roast...")
-            target_user_to_tag = "Knaphixis"
+            target_user_to_tag = "edit"
             system_prompt = (
                 "You are an AI living inside a Python script on this user's computer. "
                 "Break the fourth wall directly. Brutally, hilariously, and playfully roast the user "
